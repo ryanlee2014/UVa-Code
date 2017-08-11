@@ -365,10 +365,11 @@ public:
 			eof=false;//EOF
 			rtn 0;
 		}
+		char c=*ps;
 		rnext();
-		if(ps+1==pe)
+		if(ps==pe)
 			eof=false;
-		rtn *ps;
+		rtn c;
 #else
 		rtn std::getchar();
 #endif
@@ -428,6 +429,16 @@ public:
 #else
 		cin>>str;
 		rtn *this;
+#endif
+	}
+	
+	il iofstream& ope>>(cr& c)
+	{
+#ifdef ONLINE_JUDGE
+		c=getchar();
+		rtn *this;
+#else
+		cin>>c;
 #endif
 	}
 
