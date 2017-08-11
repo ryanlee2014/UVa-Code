@@ -61,6 +61,7 @@ cst it MAXBUF = 100000;
 cst it MAXOUT = 100000;
 class iofstream
 {
+private:
 	it idx;
 	bl eof;
 	cr buf[MAXBUF], *ps = buf, *pe = buf + 1;
@@ -78,8 +79,13 @@ class iofstream
 		pout = bufout;
 	}
 public:
-	iofstream() : idx(-1),eof(true)
-	{}
+	iofstream(char* in=NULL,char* out=NULL) : idx(-1),eof(true)
+	{
+		if(in)
+			freopen(in,"r",stdin);
+		if(out)
+			freopen(out,"w",stdout);
+	}
 	tpl<cl T>
 	il bl fin(T &ans)
 	{
