@@ -459,7 +459,7 @@ static iofstream fin;
 static endln ln;
 cst it N = 2e5+9;
 
-ll arr[N];
+it arr[N];
 
 it main(vt)
 {
@@ -467,10 +467,10 @@ it main(vt)
     fin>>T;
     wl (T--)
     {
-        ll n,m;
+        it n,m;
         fin>>n>>m;
         rep(i,1,n+1) fin>>arr[i];
-        ll k = 1;
+        it k = 1;
         wl ((k<<2) <= m) k <<= 2;
         wl (m)
         {
